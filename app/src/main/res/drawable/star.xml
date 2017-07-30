@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_active="true">
+        <color android:color="@color/colorAccent"/>
+        <shape android:shape="ring" android:innerRadius="@dimen/cardview_default_radius" android:thickness="4dp" android:tint="@color/colorAccent">
+            <solid android:color="@color/colorAccent" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+</selector>
