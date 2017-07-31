@@ -2,10 +2,12 @@ package com.mobile.songlist;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -16,6 +18,10 @@ import android.view.WindowManager;
  * status bar and navigation/system bar) with user interaction.
  */
 public class WelcomeActivity extends AppCompatActivity {
+
+    private AsyncTask getSongsJSON;
+    private final String TAG = getClass().getName();
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -93,13 +99,29 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //hide status bar
+            //hide status bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //hide action bar
+            //hide action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+            //start async task to get JSON data
+        getSongsJSON = new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                TunesJSON getJSON = new TunesJSON();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void v) {
+                Log.d(TAG, "Finished AsyncTask getting JSON");
+            }
+        }.execute();
+
+
 
         setContentView(R.layout.activity_welcome);
 
