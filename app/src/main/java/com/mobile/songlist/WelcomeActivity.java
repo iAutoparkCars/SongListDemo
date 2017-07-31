@@ -111,7 +111,8 @@ public class WelcomeActivity extends AppCompatActivity {
         getSongsJSON = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                TunesJSON getJSON = new TunesJSON();
+                AllTracksJSON getJSON = new AllTracksJSON();
+                getJSON.cacheJSON();
                 return null;
             }
 
