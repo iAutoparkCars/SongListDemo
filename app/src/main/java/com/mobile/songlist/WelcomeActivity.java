@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.net.MalformedURLException;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -112,7 +114,13 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... voids) {
                 AllTracksJSON getJSON = new AllTracksJSON();
-                getJSON.cacheJSON();
+                try
+                {
+                    getJSON.cacheJSON();
+                }
+                catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
                 return null;
             }
 
