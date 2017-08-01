@@ -6,8 +6,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.mobile.songlist.R;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,43 +30,43 @@ public class MainActivity extends AppCompatActivity {
     {
         ArrayList<SportViewModel> data = new ArrayList<>();
         SportViewModel model = new SportViewModel();
-        model.sportName = "Football";
+        model.trackName = "Football";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Cricket";
+        model.trackName = "Cricket";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Tennis";
+        model.trackName = "Tennis";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Badminton";
+        model.trackName = "Badminton";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Golf";
+        model.trackName = "Golf";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Rugby";
+        model.trackName = "Rugby";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);
 
         model = new SportViewModel();
-        model.sportName = "Hockey";
+        model.trackName = "Hockey";
         model.imgSrcId.set(R.drawable.star_outline);
 
         data.add(model);

@@ -10,7 +10,6 @@ import java.net.URL;
 
 public class Track {
 
-    //listview. trackName will be the key.
     String trackName;
     URL artworkUrl100;
 

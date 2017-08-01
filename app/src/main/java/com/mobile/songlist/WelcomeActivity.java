@@ -21,7 +21,7 @@ import java.net.MalformedURLException;
  */
 public class WelcomeActivity extends AppCompatActivity {
 
-    private AsyncTask getSongsJSON;
+    private AsyncTask getTracksJSON;
     private final String TAG = getClass().getName();
 
     /**
@@ -110,9 +110,24 @@ public class WelcomeActivity extends AppCompatActivity {
         actionBar.hide();
 
             //start async task to get JSON data
-        getSongsJSON = new AsyncTask<Void, Void, Void>() {
+        getTracksJSON = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
+
+                Thread animate = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(4000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        //run function to do animation here
+                        Log.d(TAG, "Subthread from AsyncTask started.");
+                    }
+                });
+                animate.start();
+
                 AllTracksJSON getJSON = new AllTracksJSON();
                 try
                 {
@@ -121,12 +136,21 @@ public class WelcomeActivity extends AppCompatActivity {
                 catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
+
+                try {
+                    animate.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 return null;
             }
 
             @Override
             protected void onPostExecute(Void v) {
-                Log.d(TAG, "Finished AsyncTask getting JSON");
+
+                Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
+                WelcomeActivity.this.startActivity(songlist);
+
             }
         }.execute();
 
@@ -143,8 +167,9 @@ public class WelcomeActivity extends AppCompatActivity {
         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
-                WelcomeActivity.this.startActivity(songlist);
+
+
+
                 //toggle();
             }
         });
@@ -153,6 +178,12 @@ public class WelcomeActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        //START A THREAD TO LOAD IMAGE AND DO ANIMATION
+
+        //HERE WAIT FOR ASYNC TO JOIN, AND ANIMATION THREAD TO JOIN.
+        //ONCE JOINED, GO TO NEXT INTENT
+
     }
 
     @Override

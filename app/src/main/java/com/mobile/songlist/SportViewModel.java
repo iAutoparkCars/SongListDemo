@@ -5,7 +5,8 @@ import android.databinding.ObservableInt;
 
 public class SportViewModel {
 
-    public String sportName;
+    public String trackName;
+    public String collectionName;
     public final ObservableInt imgSrcId = new ObservableInt();
 
 

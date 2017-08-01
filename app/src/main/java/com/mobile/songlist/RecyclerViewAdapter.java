@@ -46,15 +46,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (model.imgSrcId.get() == R.drawable.star)
                 {
                     model.imgSrcId.set(R.drawable.star_outline);
-                    Toast.makeText(mContext, "Sport removed from favourites",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, "Sport removed from favourites",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     model.imgSrcId.set(R.drawable.star);
-                    Toast.makeText(mContext, "Sport added to favourites",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, "Sport added to favourites",Toast.LENGTH_SHORT).show();
                 }
             }
+
+            @Override
+            public void onTrackViewClick(){
+                Toast.makeText(mContext, "track view clicked",Toast.LENGTH_SHORT).show();
+            }
         });
+
+
     }
 
     @Override
