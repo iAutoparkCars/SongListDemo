@@ -117,11 +117,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 Thread animate = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            Thread.sleep(4000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
                         //run function to do animation here
                         Log.d(TAG, "Subthread from AsyncTask started.");
                     }

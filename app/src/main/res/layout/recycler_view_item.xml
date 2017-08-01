@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
 
     <data class="SportDataBinding">
         <variable
@@ -11,14 +15,19 @@
             type="com.mobile.songlist.FavImgClickHandler"/>
         <variable
             name="cell"
+            type="com.mobile.songlist.TrackDetails"/>
+        <variable
+            name="collection"
             type="com.mobile.songlist.FavImgClickHandler"/>
+
     </data>
 
     <RelativeLayout
         android:id="@+id/track_cell"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:onClick="@{(v) -> cell.onTrackViewClick()}">
+        android:clickable="true"
+        android:onClick="@{() -> cell.onTrackViewClick()}">
 
         <ImageButton
             android:id="@+id/img_fav"
@@ -26,15 +35,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginTop="5dp"
-            android:onClick="@{(v) -> handler.OnFavImgClick()}"
+
             app:imgSrc="@{viewModel.imgSrcId}"/>
+
+        <!--android:onClick="@{(v) -> handler.OnFavImgClick()}"-->
 
         <TextView
             android:id="@+id/track_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@{viewModel.sportName}"
+            android:text="@{viewModel.trackName}"
             android:layout_marginStart="115dp"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/img_fav" />
@@ -46,6 +57,7 @@
             android:text="collection name"
             android:paddingTop="8dp"
             android:layout_below="@+id/img_fav"
+            android:onClick="@{() -> collection.onTrackViewClick()}"
             android:layout_alignStart="@+id/track_name" />
 
     </RelativeLayout>

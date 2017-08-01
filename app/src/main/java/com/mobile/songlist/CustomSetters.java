@@ -1,6 +1,7 @@
 package com.mobile.songlist;
 
 import android.databinding.BindingAdapter;
+import android.view.View;
 import android.widget.ImageButton;
 
 

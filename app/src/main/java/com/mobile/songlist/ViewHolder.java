@@ -8,21 +8,24 @@ import com.mobile.songlist.databinding.SportDataBinding;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
-    private SportDataBinding mDataBinding;
+    private SportDataBinding binding;
 
     public ViewHolder(SportDataBinding dataBinding) {
         super(dataBinding.getRoot());
-        this.mDataBinding = dataBinding;
+        this.binding = dataBinding;
     }
 
     public void bind (SportViewModel model)
     {
-        this.mDataBinding.setViewModel(model);
+        this.binding.setViewModel(model);
+        //this.binding.setHandler(new FavImgClickHandler());
+
+        //this.binding.executePendingBindings();
     }
 
     public SportDataBinding getDataBinding()
     {
-        return mDataBinding;
+        return binding;
     }
 
 }
