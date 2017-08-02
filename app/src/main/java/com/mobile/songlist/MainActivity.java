@@ -1,5 +1,6 @@
 package com.mobile.songlist;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    public RecyclerView recyclerView;
     private RelativeLayout trackView;
 
     @Override
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         //hide action bar
         getSupportActionBar().hide();
-
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

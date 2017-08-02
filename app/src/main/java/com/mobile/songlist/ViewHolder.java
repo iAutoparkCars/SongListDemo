@@ -9,6 +9,7 @@ import com.mobile.songlist.databinding.SportDataBinding;
 public class ViewHolder extends RecyclerView.ViewHolder {
 
     private SportDataBinding binding;
+    public int containerId = 0;
 
     public ViewHolder(SportDataBinding dataBinding) {
         super(dataBinding.getRoot());

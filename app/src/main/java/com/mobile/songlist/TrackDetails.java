@@ -6,6 +6,14 @@ package com.mobile.songlist;
 
 public class TrackDetails {
 
+    ViewHolder holder;
+    public TrackDetails(ViewHolder holder){
+        this.holder = holder;
+    }
     public void onTrackViewClick(){}
+
+    public ViewHolder getHolder(){
+        return this.holder;
+    }
 
 }
