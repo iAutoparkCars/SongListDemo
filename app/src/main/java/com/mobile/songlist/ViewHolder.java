@@ -18,7 +18,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public void bind (Track model)
     {
-        this.binding.setViewModel(model);
+        /*
+            bind method is very strange.
+            When you add a new "variable" in the XML, with name "track",
+            binding is able to somehow setTrack to set the variable named "track"
+        */
+        this.binding.setTrack(model);
         //this.binding.setHandler(new FavImgClickHandler());
 
         //this.binding.executePendingBindings();

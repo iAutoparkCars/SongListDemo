@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@{viewModel.trackName}"
+            android:text="@{track.trackName}"
             android:layout_marginStart="115dp"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/img_fav" />

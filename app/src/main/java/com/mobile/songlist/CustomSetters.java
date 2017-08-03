@@ -30,8 +30,8 @@ public class CustomSetters {
 
     }
 
-    @BindingAdapter({"bind:imageUrl"})
-    public static void loadImage(ImageView view, String url) {
+    @BindingAdapter("imgUrl")
+    public static void loadImage(ImageView view, URL url) {
         Log.d("CustomSetter", "trying to image with url " + url);
         //Picasso.with(view.getContext()).load(url).error(error).into(view);
     }
