@@ -3,8 +3,10 @@ package com.mobile.songlist;
 
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,18 +25,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     private String TAG = getClass().getName();
     private Context mContext;
     private FragmentManager fragmentmanager;
-    private ArrayList<SportViewModel> mList;
+    private ArrayList<Track> mList;
     private LayoutInflater inflater;
 
     private DetailsFragment detailsFragment;
 
-   /* public RecyclerViewAdapter(Context context, ArrayList<SportViewModel> list, FragmentManager fragmentManager)
+   /* public RecyclerViewAdapter(Context context, ArrayList<Track> list, FragmentManager fragmentManager)
     {
         this.mContext = context;
         this.mList = list;
     }*/
 
-    public RecyclerViewAdapter(MainActivity context, ArrayList<SportViewModel> data) {
+    public RecyclerViewAdapter(MainActivity context, ArrayList<Track> data) {
         this.mContext = context;
         this.mList = data;
     }
@@ -50,18 +52,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
         SportDataBinding trackViewBinding = DataBindingUtil.inflate(inflater, R.layout.recycler_view_item, parent,false);
 
-
         SportDataBinding dataBinding = SportDataBinding.inflate(inflater, parent, false);
         return new ViewHolder(trackViewBinding);
         //return new ViewHolder(itemView);
     }
 
-
+        // used to remove the old fragment, so only one fragment can be made at once
     public int oldFragmentViewId = -1;
 
+        /*setData in this ViewHolder. In this case, bind(data)
+        *
+        *   SHould I do binding asynchronously here? Because here
+        *   is where I'm supposed to set values, ie. set the image
+        *
+        *
+        * */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final SportViewModel model = mList.get(position);
+        final Track model = mList.get(position);
 
         //set fragment in clicked ViewHolder
         final int newContainerId = getUniqueId();
@@ -73,10 +81,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             public void onTrackViewClick(){
 
-                //get fragment manager
+                showDialog();
+               /* //get fragment manager
                 detailsFragment = DetailsFragment.newInstance();
                 MainActivity activity = (MainActivity)mContext;
-
 
                 //delete old fragment
                 Fragment oldFragment = activity.getFragmentManager().findFragmentById(oldFragmentViewId);
@@ -87,72 +95,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
                 Log.d(TAG, "track view clicked");
                 Toast.makeText(mContext, "track view clicked",Toast.LENGTH_SHORT).show();
 
-               /* detailsFragment = DetailsFragment.newInstance();
-                MainActivity activity = (MainActivity)mContext;*/
+               *//* detailsFragment = DetailsFragment.newInstance();
+                MainActivity activity = (MainActivity)mContext;*//*
+
+
+
                 activity.getFragmentManager().beginTransaction()
                         .replace(newContainerId, detailsFragment)
                         .addToBackStack("fragmentDetail")
                         .commit();
 
-                oldFragmentViewId = newContainerId;
-                //loadFragmentIntoRootView(detailsFragment, false, false);
-
-               /* final FragmentTransaction fragmentTransaction = ((MainActivity)mContext).getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.contentContainer, detailsFragment, TAG);
-                fragmentTransaction.commit();*/
-
-
-                /*DetailsFragment nextFrag = new DetailsFragment();
-                MainActivity activity = (MainActivity)mContext;
-                activity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.track_cell, nextFrag)
-                        .addToBackStack(null)
-                        .commit();*/
-
-                /*FragmentTransaction
-                if(mContext instanceof MainActivity){
-                    ((MainActivity)mContext).getFragmentManager().beginTransaction()
-                            .replace(R.id.Layout_container, nextFrag,TAG_FRAGMENT)
-                            .addToBackStack(null)
-                            .commit();
-
-                }*/
+                oldFragmentViewId = newContainerId;*/
             }
         });
 
-        /*dataBinding.setHandler(new FavImgClickHandler(mContext) {
-
-            @Override
-            public void OnFavImgClick() {
-                if (model.imgSrcId.get() == R.drawable.star)
-                {
-                    model.imgSrcId.set(R.drawable.star_outline);
-                    Toast.makeText(mContext, "Sport removed from favourites",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    model.imgSrcId.set(R.drawable.star);
-
-                    Toast.makeText(mContext, "Sport added to favourites",Toast.LENGTH_SHORT).show();
-                }
-                Log.d(TAG, "imgView clicked");
-            }
-
-            @Override
-            public void onTrackViewClick(){
-                Log.d(TAG, "track view clicked");
-                Toast.makeText(mContext, "track view clicked",Toast.LENGTH_SHORT).show();
-            }
-
-        });*/
-
-       /* dataBinding.setHandler(new FavImgClickHandler(mContext){
-            @Override
-            public void onTrackViewClick(){
-                Log.d(TAG, "track view clicked");
-                Toast.makeText(mContext, "track view clicked",Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
     @Override
@@ -164,5 +120,46 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         return 111 + (int)(Math.random() * 9999);
     }
 
+    void showDialog(){
 
+        MainActivity activity = (MainActivity)mContext;
+        /*   support.v4.app.FragmentManager is for AppCompatActivity
+        *    android.app.FragmentManager is for Activity
+        *
+        *    getSupportFragmentManager() for AppCompatActivity;
+         *    getFragmentManager() for Activity
+        * */
+        //get fragment manager
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+
+
+
+        //remove an old fragment/currently open fragment if it were started
+        FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
+        Fragment prev = activity.getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            transaction.remove(prev);
+        }
+
+        //allows fragment to be closed on back pressed
+        transaction.addToBackStack(null);
+
+        //start a new dialog fragment
+        DialogFragment newFragment = DetailsFragment.newInstance(R.string.app_name);
+        newFragment.show(fragmentManager, "dialog");
+
+        // DialogFragment.show() will take care of adding the fragment
+        // in a transaction.  We also want to remove any currently showing
+        // dialog, so make our own transaction and take care of that here.
+       /* FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+        Fragment prev = activity.getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        // Create and show the dialog.
+        DialogFragment newFragment = DetailsFragment.newInstance(mStackLevel);
+        newFragment.show(ft, "dialog");*/
+    }
 }

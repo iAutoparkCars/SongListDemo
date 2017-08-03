@@ -16,7 +16,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this.binding = dataBinding;
     }
 
-    public void bind (SportViewModel model)
+    public void bind (Track model)
     {
         this.binding.setViewModel(model);
         //this.binding.setHandler(new FavImgClickHandler());

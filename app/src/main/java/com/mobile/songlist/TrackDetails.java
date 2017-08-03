@@ -10,6 +10,7 @@ public class TrackDetails {
     public TrackDetails(ViewHolder holder){
         this.holder = holder;
     }
+
     public void onTrackViewClick(){}
 
     public ViewHolder getHolder(){

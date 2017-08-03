@@ -1,17 +1,17 @@
 package com.mobile.songlist;
 
+import android.app.Activity;
+import android.databinding.ObservableInt;
+
 import java.net.URL;
 
-/**
- * Created by Steven on 7/30/2017.
- */
-
-//should the trackId be the Key?
 
 public class Track {
 
+    public final ObservableInt imgSrcId = new ObservableInt();
+
     String trackName;
-    URL artworkUrl100;
+    public URL artworkUrl100;
 
     //fragment
     String collectionName;
@@ -93,5 +93,7 @@ public class Track {
         this.trackID = trackID;
     }
 
+
+    public Activity activity;
 
 }
