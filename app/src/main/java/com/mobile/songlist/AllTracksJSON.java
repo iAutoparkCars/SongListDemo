@@ -99,7 +99,7 @@ public class AllTracksJSON
         try {
             //essentials
             if (songJSON.has("artworkUrl100")) {
-                track.setArtworkUrl100(new URL(songJSON.getString("artworkUrl100")));
+                track.setArtwork100(new URL(songJSON.getString("artworkUrl100")));
             }
         } catch (JSONException e1) {
             e1.printStackTrace();

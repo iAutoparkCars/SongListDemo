@@ -1,11 +1,13 @@
 package com.mobile.songlist;
 
 import android.databinding.BindingAdapter;
-import android.media.Image;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 
@@ -33,6 +35,32 @@ public class CustomSetters {
     @BindingAdapter("imgUrl")
     public static void loadImage(ImageView view, URL url) {
         Log.d("CustomSetter", "trying to image with url " + url);
-        //Picasso.with(view.getContext()).load(url).error(error).into(view);
+
+        if (url==null) {
+            Log.d("CustomSetters imgUrl", "The URL was null. No Image set");
+            return;
+        }
+
+        new DownloadSetImgTask(view).execute(url);
     }
+
+
+
+    public static Bitmap fetchBitmap(URL url){
+        Bitmap result = null;
+
+        try {
+
+            InputStream inputStream = url.openStream();
+            result = BitmapFactory.decodeStream(inputStream);
+            inputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+
 }

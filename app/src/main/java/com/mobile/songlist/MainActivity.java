@@ -62,12 +62,22 @@ public class MainActivity extends AppCompatActivity {
         model.trackName = "Cricket";
         model.collectionName = "collection 2";
         model.imgSrcId.set(R.drawable.star_outline);
+        try {
+            model.artworkUrl100 = new URL("http://is2.mzstatic.com/image/thumb/Video/v4/54/84/96/548496ea-06f7-0276-7ab1-6592ca217a29/source/100x100bb.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         data.add(model);
 
         model = new Track();
         model.trackName = "Tennis";
         model.imgSrcId.set(R.drawable.star_outline);
+        try {
+            model.artworkUrl100 = new URL("http://is2.mzstatic.com/image/thumb/Video/v4/54/84/96/548496ea-06f7-0276-7ab1-6592ca217a29/source/100x100bb.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         data.add(model);
 
@@ -80,18 +90,33 @@ public class MainActivity extends AppCompatActivity {
         model = new Track();
         model.trackName = "Golf";
         model.imgSrcId.set(R.drawable.star_outline);
+        try {
+            model.artworkUrl100 = new URL("http://is2.mzstatic.com/image/thumb/Video/v4/54/84/96/548496ea-06f7-0276-7ab1-6592ca217a29/source/100x100bb.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         data.add(model);
 
         model = new Track();
         model.trackName = "Rugby";
         model.imgSrcId.set(R.drawable.star_outline);
+        try {
+            model.artworkUrl100 = new URL("http://is2.mzstatic.com/image/thumb/Video/v4/54/84/96/548496ea-06f7-0276-7ab1-6592ca217a29/source/100x100bb.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         data.add(model);
 
         model = new Track();
         model.trackName = "Hockey";
         model.imgSrcId.set(R.drawable.star_outline);
+        try {
+            model.artworkUrl100 = new URL("http://is2.mzstatic.com/image/thumb/Video/v4/54/84/96/548496ea-06f7-0276-7ab1-6592ca217a29/source/100x100bb.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         data.add(model);
         return data;

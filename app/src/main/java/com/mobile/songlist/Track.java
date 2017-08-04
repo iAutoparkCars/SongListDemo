@@ -2,7 +2,11 @@ package com.mobile.songlist;
 
 import android.app.Activity;
 import android.databinding.ObservableInt;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 
@@ -12,6 +16,7 @@ public class Track {
 
     String trackName;
     public URL artworkUrl100;
+    public Bitmap art100Bitmap;
 
     //fragment
     String collectionName;
@@ -24,6 +29,7 @@ public class Track {
         trackCount = 0;
         trackNumber = 0;
         collectionName = null;
+        artworkUrl100 = null;
     }
 
     //non-essential
@@ -41,8 +47,9 @@ public class Track {
         return artworkUrl100;
     }
 
-    public void setArtworkUrl100(URL artworkUrl100) {
+    public void setArtwork100(URL artworkUrl100) {
         this.artworkUrl100 = artworkUrl100;
+        //this.art100Bitmap = fetchBitmap()
     }
 
     public String getCollectionName() {
@@ -93,6 +100,21 @@ public class Track {
         this.trackID = trackID;
     }
 
+    public Bitmap fetchBitmap(URL url){
+        Bitmap result = null;
+
+        try {
+
+            InputStream inputStream = url.openStream();
+            result = BitmapFactory.decodeStream(inputStream);
+            inputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
     public Activity activity;
 

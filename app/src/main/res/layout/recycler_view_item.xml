@@ -4,7 +4,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <data class="SportDataBinding">
         <variable
             name="track"
@@ -17,7 +16,7 @@
             type="com.mobile.songlist.TrackDetails"/>
         <variable
             name="collection"
-            type="com.mobile.songlist.FavImgClickHandler"/>
+            type="com.mobile.songlist.Track"/>
 
     </data>
 
@@ -26,7 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:clickable="true"
-        android:onClick="@{() -> cell.onTrackViewClick()}">
+        android:onClick="@{() -> cell.onTrackViewClick()}"
+        
+        >
 
         <ImageView
             android:id="@+id/img_fav"
@@ -52,10 +53,9 @@
             android:id="@+id/collection_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="collection name"
+            android:text="@{track.collectionName}"
             android:paddingTop="8dp"
             android:layout_below="@+id/img_fav"
-            android:onClick="@{() -> collection.onTrackViewClick()}"
             android:layout_alignStart="@+id/track_name" />
 
     </RelativeLayout>

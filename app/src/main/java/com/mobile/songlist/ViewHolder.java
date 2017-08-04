@@ -24,6 +24,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             binding is able to somehow setTrack to set the variable named "track"
         */
         this.binding.setTrack(model);
+
         //this.binding.setHandler(new FavImgClickHandler());
 
         //this.binding.executePendingBindings();
