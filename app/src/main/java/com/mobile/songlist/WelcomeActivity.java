@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -106,13 +107,13 @@ public class WelcomeActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
             //hide action bar
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.hide();
 
             //start async task to get JSON data
-        getTracksJSON = new AsyncTask<Void, Void, Void>() {
+        getTracksJSON = new AsyncTask<Void, Void, ArrayList<Track>>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected ArrayList<Track> doInBackground(Void... voids) {
 
                 Thread animate = new Thread(new Runnable() {
                     @Override
@@ -123,10 +124,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 });
                 animate.start();
 
-                AllTracksJSON getJSON = new AllTracksJSON();
-                try
-                {
-                    getJSON.cacheJSON();
+                DownloadJSON downloadJSON = new DownloadJSON();
+                try {
+                    downloadJSON.cacheJSON();
                 }
                 catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -137,11 +137,17 @@ public class WelcomeActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                return null;
+
+                // pass array to onPostExecute
+                return downloadJSON.tracks;
             }
 
             @Override
-            protected void onPostExecute(Void v) {
+            protected void onPostExecute(ArrayList<Track> list) {
+
+                //pass list of tracks into next activity
+                DataPasser.getInstance().save("track-list", list);
+
 
                 Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
                 WelcomeActivity.this.startActivity(songlist);

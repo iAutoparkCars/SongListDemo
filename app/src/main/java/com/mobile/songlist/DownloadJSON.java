@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by Steven on 7/30/2017.
  */
 
-public class AllTracksJSON
+public class DownloadJSON
 {
     private final String TAG = getClass().getName();
     private JSONArray songs;
@@ -30,7 +30,7 @@ public class AllTracksJSON
 
     public ArrayList<Track> tracks;
 
-    public AllTracksJSON() {
+    public DownloadJSON() {
 
         tracks = new ArrayList<Track>();
 
@@ -134,7 +134,7 @@ public class AllTracksJSON
             //non-essential
 
             //below works
-            Log.d(TAG, (i + 1) + " trackName: " + track.getTrackName() + " artworkUrl: " + track.getTrackNumber() + " trackId: " + track.getTrackTimeMillis());
+            //Log.d(TAG, (i + 1) + " trackName: " + track.getTrackName() + " artworkUrl: " + track.getTrackNumber() + " trackId: " + track.getTrackTimeMillis());
 
             //Log.d(TAG, (i+1)+" collectionName " + " previewUrl: "  + "trackNumber: " );
             //Log.d(TAG, (i+1)+"trackName: "+trackName+ " trackNumber: " + trackNumber);

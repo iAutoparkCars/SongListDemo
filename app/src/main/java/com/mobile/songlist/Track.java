@@ -53,6 +53,8 @@ public class Track {
     }
 
     public String getCollectionName() {
+        if (collectionName==null)
+            return "null";
         return collectionName;
     }
 
@@ -118,4 +120,7 @@ public class Track {
 
     public Activity activity;
 
+    /*collectionName, trackNumber, trackCount is may throw errors
+    because KEY or value not found.
+    "Error converting JSON stream to JSON array" ALL at 33rd item.*/
 }

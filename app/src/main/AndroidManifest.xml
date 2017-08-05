@@ -13,15 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat"
+              >
         </activity>
 
 
         <activity
             android:name=".WelcomeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat"
             android:label="@string/title_activity_welcome"
-            android:theme="@style/FullscreenTheme">
+
+            >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

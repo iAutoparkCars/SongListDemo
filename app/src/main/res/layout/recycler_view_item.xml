@@ -26,8 +26,9 @@
         android:layout_height="110dp"
         android:clickable="true"
         android:onClick="@{() -> cell.onTrackViewClick()}"
-        
+
         >
+
 
         <ImageView
             android:id="@+id/img_fav"
@@ -35,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginTop="5dp"
-            app:imgUrl="@{track.artworkUrl100}"/>
+            app:imgUrl="@{track.artworkUrl100}"
+            />
 
         <!--android:onClick="@{(v) -> handler.OnFavImgClick()}"-->
 
@@ -46,8 +48,17 @@
             android:gravity="center_vertical"
             android:text="@{track.trackName}"
             android:layout_marginStart="115dp"
+            android:paddingTop="4dp"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/img_fav" />
+            android:layout_toEndOf="@+id/img_fav"
+            android:maxLines="1"
+
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:textSize="20dp"
+
+            android:textColor="@color/wellthBackgroundDarkShade"
+            />
 
         <TextView
             android:id="@+id/collection_name"
@@ -56,7 +67,15 @@
             android:text="@{track.collectionName}"
             android:paddingTop="8dp"
             android:layout_below="@+id/img_fav"
-            android:layout_alignStart="@+id/track_name" />
+            android:layout_alignStart="@+id/track_name"
+            android:maxLines="2"
+
+            android:fontFamily="sans-serif-light"
+            android:textSize="16dp"
+            android:textStyle="italic"
+
+            android:textColor="@color/wellthBackgroundDarkShade"
+            />
 
     </RelativeLayout>
 </layout>
