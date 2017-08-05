@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new RecyclerViewAdapter(this, getData()));
 
-        /*int i = 0;
+       /* int i = 0;
         for (Track t : this.tracks){
-            Log.d(TAG, (i+1)+": " + t.getTrackID());
+            Log.d(TAG, (i+1)+" collectionName: " + t.collectionName);
             i++;
         }*/
 
@@ -54,5 +55,12 @@ public class MainActivity extends AppCompatActivity {
     {
         return this.tracks;
     }
+
+    /*@Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this, "leaving App", Toast.LENGTH_SHORT).show();
+        moveTaskToBack(true);
+    }*/
 
 }

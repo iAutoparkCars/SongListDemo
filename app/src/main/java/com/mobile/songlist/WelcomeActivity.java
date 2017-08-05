@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -43,17 +44,20 @@ public class WelcomeActivity extends AppCompatActivity {
      */
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
-    private View mContentView;
+    private ImageView welcomeImage;
+
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
         public void run() {
             // Delayed removal of status and navigation bar
 
+            welcomeImage = (ImageView) findViewById(R.id.fullscreen_image);
+
             // Note that some of these constants are new as of API 16 (Jelly Bean)
             // and API 19 (KitKat). It is safe to use them, as they are inlined
             // at compile-time and do nothing on earlier devices.
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+            welcomeImage.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                     | View.SYSTEM_UI_FLAG_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -65,17 +69,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     };
     private View mControlsView;
-    private final Runnable mShowPart2Runnable = new Runnable() {
-        @Override
-        public void run() {
-            // Delayed display of UI elements
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.show();
-            }
-            mControlsView.setVisibility(View.VISIBLE);
-        }
-    };
+
     private boolean mVisible;
     private final Runnable mHideRunnable = new Runnable() {
         @Override
@@ -102,13 +96,14 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            //hide status bar
+        // hide status bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-            //hide action bar
-        //ActionBar actionBar = getSupportActionBar();
-        //actionBar.hide();
+
+            // hide action bar
+        if(getSupportActionBar()!=null)
+            getSupportActionBar().hide();
 
             //start async task to get JSON data
         getTracksJSON = new AsyncTask<Void, Void, ArrayList<Track>>() {
@@ -119,6 +114,11 @@ public class WelcomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //run function to do animation here
+
+                        try{
+                            Thread.sleep(4500);
+                        } catch (InterruptedException e){}
+
                         Log.d(TAG, "Subthread from AsyncTask started.");
                     }
                 });
@@ -148,7 +148,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 //pass list of tracks into next activity
                 DataPasser.getInstance().save("track-list", list);
 
-
                 Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
                 WelcomeActivity.this.startActivity(songlist);
 
@@ -161,11 +160,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.fullscreen_content);
+
 
 
         // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
+        /*welcomeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -173,12 +172,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
                 //toggle();
             }
-        });
+        });*/
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
         //START A THREAD TO LOAD IMAGE AND DO ANIMATION
 
@@ -207,7 +205,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void hide() {
         // Hide UI first
-        ActionBar actionBar = getSupportActionBar();
+       /* ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
@@ -216,19 +214,19 @@ public class WelcomeActivity extends AppCompatActivity {
 
         // Schedule a runnable to remove the status and navigation bar after a delay
         mHideHandler.removeCallbacks(mShowPart2Runnable);
-        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
+        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);*/
     }
 
     @SuppressLint("InlinedApi")
     private void show() {
         // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+       /* welcomeImage.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
         mVisible = true;
 
         // Schedule a runnable to display UI elements after a delay
         mHideHandler.removeCallbacks(mHidePart2Runnable);
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
+        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);*/
     }
 
     /**

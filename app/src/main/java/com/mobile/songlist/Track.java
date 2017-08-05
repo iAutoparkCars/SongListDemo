@@ -54,7 +54,7 @@ public class Track {
 
     public String getCollectionName() {
         if (collectionName==null)
-            return "null";
+            return "No name";
         return collectionName;
     }
 

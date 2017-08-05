@@ -5,17 +5,9 @@ package com.mobile.songlist;
 import android.os.Bundle;
 
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.SwitchCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by Steven on 8/1/2017.
@@ -45,7 +37,7 @@ public class DetailsFragment extends DialogFragment {
 
         // use currentView.findViewById to setWhatever ,setOnWhateverClick listener in this dialog fragment
 
-       viewContent = currentView.findViewById(R.id.fullscreen_content);
+       viewContent = currentView.findViewById(R.id.fullscreen_image);
 
         currentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY

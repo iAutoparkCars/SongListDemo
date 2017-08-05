@@ -124,6 +124,12 @@ public class DownloadJSON
         if (songJSON.has("trackNumber")){
             track.setTrackNumber(songJSON.getInt("trackNumber"));
         }
+
+        if (songJSON.has("collectionName")){
+            track.setCollectionName(songJSON.getString("collectionName"));
+        }
+
+
             //collectionName, trackNumber, trackCount is throwing error "Error converting JSON stream to JSON array" ALL at 33rd item.
             //33rd item is not a track. So there's no track number. If key is null, how to return a null value instead of throwing an error?
 
