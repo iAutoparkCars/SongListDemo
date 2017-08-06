@@ -26,38 +26,33 @@
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout
+
+    <RelativeLayout
+        android:id="@+id/text_animation"
+        style="?metaButtonBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
 
-        <RelativeLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
+
+        <com.mobile.songlist.TypingTextView
+            android:id="@+id/typing_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-light"
+            android:text="track length"
+            android:textColor="@color/black_overlay"
+            android:textSize="45sp"
+            android:textStyle="italic"
+            android:paddingBottom="12dp"
+            android:background="#00000000"
+            />
+
+    </RelativeLayout>
 
 
-            <TextView
-                android:id="@+id/track_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif-light"
-                android:text="track length"
-                android:textColor="@color/black_overlay"
-                android:textSize="45sp"
-                android:textStyle="italic"
-                android:paddingBottom="12dp"
-
-                />
-
-        </RelativeLayout>
-
-
-    </FrameLayout>
 
 </FrameLayout>

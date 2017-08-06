@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // get list of tracks from Welcome activity
+            // get list of tracks from Welcome activity
         this.tracks = DataPasser.getInstance().retrieve("track-list");
 
-        //hide action bar
+            // hide action bar
         try {
             getSupportActionBar().hide();
         } catch (NullPointerException e) {
@@ -43,12 +43,6 @@ public class MainActivity extends AppCompatActivity {
         //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new RecyclerViewAdapter(this, getData()));
 
-       /* int i = 0;
-        for (Track t : this.tracks){
-            Log.d(TAG, (i+1)+" collectionName: " + t.collectionName);
-            i++;
-        }*/
-
     }
 
     private ArrayList<Track> getData()
@@ -56,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         return this.tracks;
     }
 
-    /*@Override
+    @Override
     public void onBackPressed()
     {
         Toast.makeText(this, "leaving App", Toast.LENGTH_SHORT).show();
         moveTaskToBack(true);
-    }*/
+    }
 
 }

@@ -93,7 +93,7 @@
         android:layout_marginTop="15dp">
 
         <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
+            android:id="@+id/text_animation"
             style="?metaButtonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
