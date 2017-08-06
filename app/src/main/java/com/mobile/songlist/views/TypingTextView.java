@@ -1,4 +1,4 @@
-package com.mobile.songlist;
+package com.mobile.songlist.views;
 
 /**
  * Created by Steven on 8/6/2017.

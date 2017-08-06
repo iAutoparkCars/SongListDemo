@@ -1,18 +1,19 @@
-package com.mobile.songlist;
+package com.mobile.songlist.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.mobile.songlist.DataPasser;
+import com.mobile.songlist.R;
+import com.mobile.songlist.models.RecyclerViewAdapter;
+import com.mobile.songlist.models.Track;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new RecyclerViewAdapter(this, getData()));
 
     }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        Toast.makeText(this, "leaving App", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "leaving...", Toast.LENGTH_SHORT).show();
         moveTaskToBack(true);
     }
 

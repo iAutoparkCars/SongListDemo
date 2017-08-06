@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
-    tools:context="com.mobile.songlist.MainActivity"
+    tools:context="com.mobile.songlist.views.MainActivity"
 
     android:maxWidth="300dp"
     android:maxHeight="285dp"

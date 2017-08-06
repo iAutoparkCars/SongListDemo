@@ -8,16 +8,13 @@
     <data class="SportDataBinding">
         <variable
             name="track"
-            type="com.mobile.songlist.Track"/>
-        <variable
-            name="handler"
-            type="com.mobile.songlist.FavImgClickHandler"/>
+            type="com.mobile.songlist.models.Track"/>
         <variable
             name="cell"
             type="com.mobile.songlist.TrackDetails"/>
         <variable
             name="collection"
-            type="com.mobile.songlist.Track"/>
+            type="com.mobile.songlist.models.Track"/>
 
     </data>
 
@@ -41,8 +38,6 @@
             android:paddingRight="3dp"
             app:imgUrl="@{track.artworkUrl100}"/>
 
-
-        <!--android:onClick="@{(v) -> handler.OnFavImgClick()}"-->
 
         <TextView
             android:id="@+id/track_name"

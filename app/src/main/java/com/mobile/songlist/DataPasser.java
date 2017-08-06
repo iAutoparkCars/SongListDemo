@@ -17,11 +17,11 @@ public class DataPasser<T> {
 
     Map<String, WeakReference<ArrayList<T>>> data = new HashMap<String, WeakReference<ArrayList<T>>>();
 
-    void save(String id, ArrayList<T> T) {
+    public void save(String id, ArrayList<T> T) {
         data.put(id, new WeakReference<ArrayList<T>>(T));
     }
 
-    ArrayList<T> retrieve(String id) {
+    public ArrayList<T> retrieve(String id) {
         WeakReference<ArrayList<T>> TWeakReference = data.get(id);
         return TWeakReference.get();
     }

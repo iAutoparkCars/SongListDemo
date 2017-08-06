@@ -1,5 +1,7 @@
 package com.mobile.songlist;
 
+import com.mobile.songlist.models.ViewHolder;
+
 /**
  * Created by Steven on 8/1/2017.
  */

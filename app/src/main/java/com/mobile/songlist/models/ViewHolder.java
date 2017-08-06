@@ -1,4 +1,4 @@
-package com.mobile.songlist;
+package com.mobile.songlist.models;
 
 import android.support.v7.widget.RecyclerView;
 

@@ -1,4 +1,4 @@
-package com.mobile.songlist;
+package com.mobile.songlist.views;
 
 
 
@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mobile.songlist.DataPasser;
+import com.mobile.songlist.R;
+import com.mobile.songlist.models.Track;
 
 import java.io.IOException;
 

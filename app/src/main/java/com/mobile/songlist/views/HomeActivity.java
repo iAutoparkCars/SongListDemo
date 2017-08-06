@@ -1,4 +1,4 @@
-package com.mobile.songlist;
+package com.mobile.songlist.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,6 +17,11 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.mobile.songlist.DataPasser;
+import com.mobile.songlist.models.DownloadJSON;
+import com.mobile.songlist.R;
+import com.mobile.songlist.models.Track;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
@@ -24,7 +29,7 @@ import java.util.ArrayList;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class WelcomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private AsyncTask getTracksJSON;
     private final String TAG = getClass().getName();
@@ -171,8 +176,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 DataPasser.getInstance().save("track-list", list);
 
 
-                Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
-                WelcomeActivity.this.startActivity(songlist);
+                Intent songlist = new Intent(HomeActivity.this, MainActivity.class);
+                HomeActivity.this.startActivity(songlist);
 
             }
         }.execute();

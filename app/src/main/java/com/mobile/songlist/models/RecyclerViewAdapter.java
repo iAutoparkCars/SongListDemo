@@ -1,4 +1,4 @@
-package com.mobile.songlist;
+package com.mobile.songlist.models;
 
 
 
@@ -10,13 +10,16 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.mobile.songlist.DataPasser;
+import com.mobile.songlist.R;
+import com.mobile.songlist.TrackDetails;
 import com.mobile.songlist.databinding.SportDataBinding;
+import com.mobile.songlist.views.DetailsFragment;
+import com.mobile.songlist.views.MainActivity;
 
 import java.util.ArrayList;
 

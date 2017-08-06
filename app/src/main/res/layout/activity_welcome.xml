@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mobile.songlist.WelcomeActivity">
+    tools:context="com.mobile.songlist.views.HomeActivity">
 
     <!--android:background="#0099cc"-->
 
@@ -37,7 +37,7 @@
         tools:ignore="UselessParent">
 
 
-        <com.mobile.songlist.TypingTextView
+        <com.mobile.songlist.views.TypingTextView
             android:id="@+id/typing_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
