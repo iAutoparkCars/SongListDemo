@@ -116,7 +116,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         //run function to do animation here
 
                         try{
-                            Thread.sleep(4500);
+                            Thread.sleep(5500);
                         } catch (InterruptedException e){}
 
                         Log.d(TAG, "Subthread from AsyncTask started.");

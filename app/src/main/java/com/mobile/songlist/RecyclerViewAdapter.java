@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
@@ -81,31 +82,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             public void onTrackViewClick(){
 
-                showDialog();
-               /* //get fragment manager
-                detailsFragment = DetailsFragment.newInstance();
-                MainActivity activity = (MainActivity)mContext;
+                // pass url to fragment
+                showDialog(model);
 
-                //delete old fragment
-                Fragment oldFragment = activity.getFragmentManager().findFragmentById(oldFragmentViewId);
-                if(oldFragment != null) {
-                    activity.getFragmentManager().beginTransaction().remove(oldFragment).commit();
-                }
-
-                Log.d(TAG, "track view clicked");
-                Toast.makeText(mContext, "track view clicked",Toast.LENGTH_SHORT).show();
-
-               *//* detailsFragment = DetailsFragment.newInstance();
-                MainActivity activity = (MainActivity)mContext;*//*
-
-
-
-                activity.getFragmentManager().beginTransaction()
-                        .replace(newContainerId, detailsFragment)
-                        .addToBackStack("fragmentDetail")
-                        .commit();
-
-                oldFragmentViewId = newContainerId;*/
             }
         });
 
@@ -120,8 +99,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         return 111 + (int)(Math.random() * 9999);
     }
 
-    void showDialog(){
+    void showDialog(Track track){
 
+	
         MainActivity activity = (MainActivity)mContext;
         /*   support.v4.app.FragmentManager is for AppCompatActivity
         *    android.app.FragmentManager is for Activity
@@ -129,10 +109,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         *    getSupportFragmentManager() for AppCompatActivity;
          *    getFragmentManager() for Activity
         * */
+		
+		
+		
         //get fragment manager
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
 
+		// Pass selected Track's details to fragment using ArrayList
+        ArrayList<Track> temp = new ArrayList<Track>();
+        temp.add(track);
 
+        DataPasser.getInstance().save("trackData", temp);
+
+		Bundle bundle = new Bundle();
+        bundle.putString("previewURL", track.getPreviewURL().toString());
 
         //remove an old fragment/currently open fragment if it were started
         FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
@@ -146,6 +136,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         //start a new dialog fragment
         DialogFragment newFragment = DetailsFragment.newInstance(R.string.app_name);
+		newFragment.setArguments(bundle);
         newFragment.show(fragmentManager, "dialog");
 
         // DialogFragment.show() will take care of adding the fragment

@@ -2,24 +2,24 @@
 <resources>
 
     <item name="semiTransparent" type="color">#80000000</item>
-    <item name="wellthBackgroundDarkShade" type="color">#ffdcdde1</item>
+    <item name="backgroundDarkShade" type="color">#ffdcdde1</item>
 
-    <item name="wellthTextNormalLight" type="color">#E2FFFFFF</item>
-    <item name="wellthTextSecondaryLight" type="color">#A9FFFFFF</item>
-    <item name="wellthTextHintLight" type="color">#62FFFFFF</item>
+    <item name="textNormalLight" type="color">#E2FFFFFF</item>
+    <item name="textSecondaryLight" type="color">#A9FFFFFF</item>
+    <item name="textHintLight" type="color">#62FFFFFF</item>
 
-    <item name="wellthTextNormalDark" type="color">#E2000000</item>
-    <item name="wellthTextSecondaryDark" type="color">#A9000000</item>
-    <item name="wellthTextHintDark" type="color">#62000000</item>
+    <item name="textNormalDark" type="color">#E2000000</item>
+    <item name="textSecondaryDark" type="color">#A9000000</item>
+    <item name="textHintDark" type="color">#62000000</item>
 
-    <item name="wellthTextDarkBlue" type="color">#FF5D658E</item>
+    <item name="textDarkBlue" type="color">#FF5D658E</item>
 
-    <item name="wellthBackgroundDark" type="color">#FFF5F6FA</item>
+    <item name="backgroundDark" type="color">#FFF5F6FA</item>
 
-    <item name="wellthBackgroundDark2" type="color">#ffdfe0e4</item>
+    <item name="backgroundDark2" type="color">#ffdfe0e4</item>
 
-    <item name="wellthBackgroundLight" type="color">#FFF5F6FA</item>
-    <item name="wellthBackgroundLightShade" type="color">#D4D8DE</item>
+    <item name="backgroundLight" type="color">#FFF5F6FA</item>
+    <item name="backgroundLightShade" type="color">#D4D8DE</item>
 
 
 </resources>

@@ -30,6 +30,8 @@ public class Track {
         trackNumber = 0;
         collectionName = null;
         artworkUrl100 = null;
+		previewURL = null;
+        trackTimeMillis = 1;
     }
 
     //non-essential
@@ -63,6 +65,7 @@ public class Track {
     }
 
     public URL getPreviewURL() {
+		
         return previewURL;
     }
 
