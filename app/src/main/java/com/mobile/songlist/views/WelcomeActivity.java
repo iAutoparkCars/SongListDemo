@@ -29,7 +29,7 @@ import java.util.ArrayList;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class HomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     private AsyncTask getTracksJSON;
     private final String TAG = getClass().getName();
@@ -135,7 +135,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         typingText.setText("");
                         typingText.setCharacterDelay(470);
-                        typingText.displayTextWithAnimation("ideaTree");
+                        typingText.displayTextWithAnimation("welcome...");
 
                         try{
                             Thread.sleep(4500);
@@ -147,7 +147,6 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
                 animate.start();
-
 
                 DownloadJSON downloadJSON = new DownloadJSON();
                 try {
@@ -176,8 +175,8 @@ public class HomeActivity extends AppCompatActivity {
                 DataPasser.getInstance().save("track-list", list);
 
 
-                Intent songlist = new Intent(HomeActivity.this, MainActivity.class);
-                HomeActivity.this.startActivity(songlist);
+                Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
+                WelcomeActivity.this.startActivity(songlist);
 
             }
         }.execute();
