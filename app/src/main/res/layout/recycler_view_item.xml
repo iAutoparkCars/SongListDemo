@@ -8,13 +8,13 @@
     <data class="SportDataBinding">
         <variable
             name="track"
-            type="com.mobile.songlist.models.Track"/>
+            type="com.mobile.songlist.viewmodels.Track"/>
         <variable
             name="cell"
             type="com.mobile.songlist.TrackDetails"/>
         <variable
             name="collection"
-            type="com.mobile.songlist.models.Track"/>
+            type="com.mobile.songlist.viewmodels.Track"/>
 
     </data>
 

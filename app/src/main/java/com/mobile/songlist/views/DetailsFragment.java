@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.mobile.songlist.DataPasser;
 import com.mobile.songlist.R;
-import com.mobile.songlist.models.Track;
+import com.mobile.songlist.viewmodels.Track;
 
 import java.io.IOException;
 

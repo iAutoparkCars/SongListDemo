@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import com.mobile.songlist.DataPasser;
 import com.mobile.songlist.models.DownloadJSON;
 import com.mobile.songlist.R;
-import com.mobile.songlist.models.Track;
+import com.mobile.songlist.viewmodels.Track;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -175,7 +175,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 DataPasser.getInstance().save("track-list", list);
 
 
-                Intent songlist = new Intent(WelcomeActivity.this, MainActivity.class);
+                Intent songlist = new Intent(WelcomeActivity.this, HomeListActivity.class);
                 WelcomeActivity.this.startActivity(songlist);
 
             }

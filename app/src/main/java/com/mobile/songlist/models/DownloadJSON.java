@@ -2,6 +2,8 @@ package com.mobile.songlist.models;
 
 import android.util.Log;
 
+import com.mobile.songlist.viewmodels.Track;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

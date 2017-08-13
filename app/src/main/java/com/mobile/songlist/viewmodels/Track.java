@@ -1,4 +1,4 @@
-package com.mobile.songlist.models;
+package com.mobile.songlist.viewmodels;
 
 import android.app.Activity;
 import android.databinding.ObservableInt;

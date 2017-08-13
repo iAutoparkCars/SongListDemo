@@ -10,12 +10,11 @@ import android.widget.Toast;
 
 import com.mobile.songlist.DataPasser;
 import com.mobile.songlist.R;
-import com.mobile.songlist.models.RecyclerViewAdapter;
-import com.mobile.songlist.models.Track;
+import com.mobile.songlist.viewmodels.Track;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeListActivity extends AppCompatActivity {
 
     private String TAG = getClass().getName();
 

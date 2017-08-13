@@ -1,4 +1,4 @@
-package com.mobile.songlist.models;
+package com.mobile.songlist.views;
 
 
 
@@ -18,8 +18,8 @@ import com.mobile.songlist.DataPasser;
 import com.mobile.songlist.R;
 import com.mobile.songlist.TrackDetails;
 import com.mobile.songlist.databinding.SportDataBinding;
-import com.mobile.songlist.views.DetailsFragment;
-import com.mobile.songlist.views.MainActivity;
+import com.mobile.songlist.models.ViewHolder;
+import com.mobile.songlist.viewmodels.Track;
 
 import java.util.ArrayList;
 
@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.mList = list;
     }*/
 
-    public RecyclerViewAdapter(MainActivity context, ArrayList<Track> data) {
+    public RecyclerViewAdapter(HomeListActivity context, ArrayList<Track> data) {
         this.mContext = context;
         this.mList = data;
     }
@@ -105,7 +105,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     void showDialog(Track track){
 
 	
-        MainActivity activity = (MainActivity)mContext;
+        HomeListActivity activity = (HomeListActivity)mContext;
         /*   support.v4.app.FragmentManager is for AppCompatActivity
         *    android.app.FragmentManager is for Activity
         *

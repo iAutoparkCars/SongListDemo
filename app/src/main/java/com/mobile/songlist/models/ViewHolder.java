@@ -3,7 +3,7 @@ package com.mobile.songlist.models;
 import android.support.v7.widget.RecyclerView;
 
 import com.mobile.songlist.databinding.SportDataBinding;
-
+import com.mobile.songlist.viewmodels.Track;
 
 
 public class ViewHolder extends RecyclerView.ViewHolder {
@@ -23,6 +23,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             When you add a new "variable" in the XML, with name "track",
             binding is able to somehow setTrack to set the variable named "track"
         */
+
         this.binding.setTrack(model);
 
         //this.binding.setHandler(new FavImgClickHandler());
