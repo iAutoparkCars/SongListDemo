@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import com.mobile.songlist.databinding.SportDataBinding;
 import com.mobile.songlist.viewmodels.Track;
 
+// this class is a View; it uses the data binding
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
