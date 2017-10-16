@@ -4,7 +4,7 @@ Practiced mobile animations, MVVM architecture, and databinding.
 
 
 
-# Progression of the UI
+# UI Made from scratch; no template: UI Progression
 Started with a bare layout, initially filled with dummy data to mock populate the views.
 Took a screen capture after each major internal or UI change.
 
@@ -22,3 +22,4 @@ Made from scratch.
 The list was created using RecyclerView. Screen capture doesn't support audio,
 but audio does play!
 
+![ezgif-2-8b09e9f5d7](https://user-images.githubusercontent.com/14288932/31610201-33346b10-b245-11e7-91eb-30dd9ef67fb6.gif)
