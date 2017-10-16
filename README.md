@@ -4,7 +4,7 @@ Practiced mobile animations, MVVM architecture, and databinding.
 
 
 
-# UI Made from scratch; no template: UI Progression
+# UI Made from scratch: UI Progression
 Started with a bare layout, initially filled with dummy data to mock populate the views.
 Took a screen capture after each major internal or UI change.
 
