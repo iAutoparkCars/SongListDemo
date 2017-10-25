@@ -1,7 +1,7 @@
 # iTunes Store Preview Demo
 Preview audio from the iTunes store. Uses iTunes API.
 Practiced mobile animations, MVVM architecture, and databinding.
-**ANy noticeable lag is from the free animations, not from the app itself**
+**Any noticeable lag is from the free animations, not from the app itself**
 
 
 # UI Made from scratch: UI Progression
